@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narcisismo - Atlas da Mente Humana</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Atlas da Mente</span>
+            </a>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Buscar tópicos..." autocomplete="off">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../pages/emocoes.html">Emoções</a></li>
+                <li><a href="../pages/personalidade.html" class="active">Personalidade</a></li>
+                <li><a href="../pages/cognicao.html">Cognição</a></li>
+                <li><a href="../pages/trauma.html">Trauma</a></li>
+                <li><a href="../pages/relacoes.html">Relações</a></li>
+                <li><a href="../pages/decisoes.html">Decisões</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html" class="breadcrumb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Início</span>
+                </a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="../pages/personalidade.html" class="breadcrumb-item">Personalidade</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item current">Narcisismo</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-bg">
+            <div class="header-pattern"></div>
+            <div class="header-glow"></div>
+        </div>
+        <div class="container">
+            <a href="../pages/personalidade.html" class="back-button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Voltar para Personalidade</span>
+            </a>
+            <div class="page-header-content">
+                <div class="page-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                    </svg>
+                </div>
+                <h1 class="page-title">Narcisismo</h1>
+                <p class="page-desc">O trato de personalidade caracterizado por autoabsorção excessiva, necessidade de admiração e falta de empatia.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="content-block">
+                <h2>O Que É Narcisismo?</h2>
+                <p>O narcisismo é um trato de personalidade que envolve uma visão inflada de si mesmo, necessidade excessiva de admiração e falta de empatia pelos outros. O termo vem da mitologia grega, onde Narciso era um jovem que se apaixonou por sua própria reflexão.</p>
+                <p>É importante distinguir entre narcisismo saudável (confiança realista em si mesmo) e Transtorno de Personalidade Narcisista (TPN), que é uma condição mental mais grave.</p>
+            </div>
+
+            <div class="content-block">
+                <h2>Características do Narcisismo</h2>
+                <p>Pessoas com traços narcisistas frequentemente:</p>
+                <ul class="content-list">
+                    <li>Sentem-se superiores aos outros</li>
+                    <li>Precisam de admiração constante</li>
+                    <li>Têm dificuldade em reconhecer as necessidades dos outros</li>
+                    <li>Explotam relacionamentos para seu benefício</li>
+                    <li>Têm dificuldade em aceitar críticas</li>
+                    <li>Sonham com poder, sucesso e beleza</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h2>Causas do Narcisismo</h2>
+                <p>O desenvolvimento do narcisismo pode estar relacionado a:</p>
+                <ul class="content-list">
+                    <li><strong>Fatores genéticos:</strong> Predisposição biológica</li>
+                    <li><strong>Ambiente familiar:</strong> Pais excessivamente permissivos ou negligentes</li>
+                    <li><strong>Trauma na infância:</strong> Experiências que afetaram o desenvolvimento emocional</li>
+                    <li><strong>Adulação excessiva:</strong> Elogios desproporcionais na infância</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h2>Lidando com Pessoas Narcisistas</h2>
+                <p>Se você interage com alguém que tem traços narcisistas:</p>
+                <ul class="content-list">
+                    <li>Estabeleça limites claros</li>
+                    <li>Não alimente a necessidade de admiração</li>
+                    <li>Mantenha expectativas realistas</li>
+                    <li>Cuide da sua própria saúde mental</li>
+                    <li>Busque apoio profissional se necessário</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Topics -->
+    <section class="related-section">
+        <div class="container">
+            <div class="related-content">
+                <h3>Tópicos Relacionados</h3>
+                <div class="related-cards">
+                    <a href="empatia.html" class="related-card">
+                        <div class="related-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="related-info">
+                            <h4>Empatia</h4>
+                            <p>Capacidade de compreender outros</p>
+                        </div>
+                    </a>
+                    <a href="../pages/relacoes.html" class="related-card">
+                        <div class="related-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="related-info">
+                            <h4>Manipulação</h4>
+                            <p>Influência psicológica nociva</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">Atlas da Mente</span>
+                    </a>
+                    <p>Uma jornada pelo universo da mente humana, explorando emoções, comportamentos e a complexidade que nos define.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Áreas</h4>
+                        <ul>
+                            <li><a href="../pages/emocoes.html">Emoções</a></li>
+                            <li><a href="../pages/personalidade.html">Personalidade</a></li>
+                            <li><a href="../pages/cognicao.html">Cognição</a></li>
+                            <li><a href="../pages/trauma.html">Trauma</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Atlas da Mente Humana. Projeto educacional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>

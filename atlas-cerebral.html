@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Interativo do Cérebro Humano | Atlas da Mente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #08080c;
+            --bg-secondary: #0f0f14;
+            --bg-tertiary: #16161e;
+            --bg-elevated: #1c1c26;
+            --accent-primary: #818cf8;
+            --accent-secondary: #a5b4fc;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-light: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+
+        .hero {
+            padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 2rem) 1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(1.25rem, 5vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            color: var(--text-secondary);
+            font-size: clamp(0.85rem, 2vw, 1.05rem);
+            line-height: 1.6;
+            margin-bottom: clamp(0.4rem, 1.5vw, 0.5rem);
+        }
+
+        .hero .note {
+            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .main-container {
+            display: flex;
+            gap: clamp(1rem, 3vw, 1.5rem);
+            padding: clamp(0.75rem, 3vw, 1rem) clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem);
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 180px);
+        }
+
+        .brain-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brain-container {
+            position: relative;
+            width: 100%;
+            max-width: clamp(280px, 70vw, 480px);
+            aspect-ratio: 1 / 1.15;
+        }
+
+        .brain-svg {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(129, 140, 248, 0.15));
+            touch-action: manipulation;
+        }
+
+        .brain-region {
+            cursor: pointer;
+            stroke: #1a1a2e;
+            stroke-width: 1.5;
+            transition: filter 0.25s ease, stroke 0.25s ease, stroke-width 0.25s ease;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .brain-region:hover {
+            filter: brightness(1.25);
+            stroke: #ffffff;
+            stroke-width: 2;
+        }
+
+        .brain-region:active {
+            filter: brightness(1.35);
+        }
+
+        .brain-region.active {
+            filter: brightness(1.35);
+            stroke: #ffffff;
+            stroke-width: 2.5;
+        }
+
+        .instruction {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: clamp(0.75rem, 3vw, 1rem);
+            padding: clamp(0.5rem, 2vw, 0.6rem) clamp(0.75rem, 2vw, 1rem);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            color: var(--text-muted);
+        }
+
+        .instruction-icon {
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: var(--accent-primary);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        .info-panel {
+            width: clamp(280px, 35vw, 380px);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.75rem, 2vw, 1.25rem);
+            max-height: calc(100vh - 220px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--bg-tertiary) transparent;
+        }
+
+        .info-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .info-panel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .info-panel::-webkit-scrollbar-thumb {
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+        }
+
+        .panel-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 300px;
+            color: var(--text-muted);
+            text-align: center;
+            gap: 0.75rem;
+        }
+
+        .panel-empty svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.4;
+        }
+
+        .panel-header {
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: clamp(0.75rem, 2vw, 1rem);
+        }
+
+        .region-name {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .region-latin {
+            font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .info-block {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.35rem, 1vw, 0.5rem);
+        }
+
+        .info-label {
+            font-size: clamp(0.6rem, 1.2vw, 0.7rem);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .info-label::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+        }
+
+        .info-content {
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(0.3rem, 1vw, 0.4rem);
+        }
+
+        .info-list li {
+            padding: clamp(0.25rem, 0.8vw, 0.35rem) clamp(0.5rem, 1.2vw, 0.7rem);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .info-list li:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-secondary);
+        }
+
+        .curiosity-block {
+            background: linear-gradient(135deg, rgba(129, 140, 248, 0.08) 0%, rgba(129, 140, 248, 0.03) 100%);
+            border: 1px solid rgba(129, 140, 248, 0.2);
+            border-radius: 10px;
+            padding: clamp(0.75rem, 2vw, 1rem);
+        }
+
+        .curiosity-block .info-label {
+            color: var(--accent-secondary);
+            margin-bottom: clamp(0.35rem, 1vw, 0.5rem);
+        }
+
+        .curiosity-block .info-content {
+            font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+            color: var(--text-secondary);
+        }
+
+        .mobile-modal {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-radius: 20px 20px 0 0;
+            padding: clamp(1.25rem, 5vw, 1.5rem);
+            max-height: 70vh;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-modal.open {
+            transform: translateY(0);
+        }
+
+        .mobile-modal .region-name {
+            font-size: clamp(1.1rem, 4vw, 1.25rem);
+        }
+
+        .mobile-modal .info-block {
+            margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+        }
+
+        .mobile-modal .info-content {
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: clamp(0.75rem, 3vw, 1rem);
+            right: clamp(0.75rem, 3vw, 1rem);
+            width: clamp(28px, 8vw, 32px);
+            height: clamp(28px, 8vw, 32px);
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .modal-close:hover,
+        .modal-close:active {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 99;
+        }
+
+        .mobile-overlay.open {
+            opacity: 1;
+        }
+
+        .back-link {
+            position: fixed;
+            top: clamp(0.75rem, 3vw, 1.5rem);
+            left: clamp(0.75rem, 3vw, 1.5rem);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.6rem, 2vw, 1rem);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            transition: all 0.2s ease;
+            z-index: 50;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .back-link:hover,
+        .back-link:active {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            border-color: var(--border-light);
+        }
+
+        /* Tablet styles */
+        @media (max-width: 1024px) {
+            .main-container {
+                padding: clamp(0.75rem, 3vw, 1rem);
+                gap: clamp(1rem, 3vw, 1.5rem);
+            }
+            .info-panel {
+                width: clamp(260px, 30vw, 320px);
+            }
+            .brain-container {
+                max-width: clamp(240px, 60vw, 400px);
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .back-link {
+                top: clamp(0.5rem, 2vw, 1rem);
+                left: clamp(0.5rem, 2vw, 1rem);
+                padding: clamp(0.35rem, 1.2vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.8rem);
+                font-size: clamp(0.7rem, 2vw, 0.8rem);
+            }
+            .hero {
+                padding: clamp(2.5rem, 12vw, 3.5rem) clamp(0.75rem, 3vw, 1rem) 1rem;
+            }
+            .hero h1 {
+                font-size: clamp(1.1rem, 5vw, 1.4rem);
+            }
+            .hero .subtitle {
+                font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            }
+            .main-container {
+                flex-direction: column;
+                padding: clamp(0.25rem, 2vw, 0.5rem);
+                gap: clamp(0.75rem, 3vw, 1rem);
+            }
+            .brain-container {
+                max-width: clamp(260px, 85vw, 380px);
+                width: 100%;
+            }
+            .info-panel {
+                display: none;
+            }
+            .mobile-modal,
+            .mobile-overlay {
+                display: block;
+            }
+            .instruction {
+                font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+                padding: clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.6rem, 2vw, 0.8rem);
+            }
+            .brain-section {
+                width: 100%;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .brain-container {
+                max-width: 95vw;
+            }
+            .mobile-modal {
+                max-height: 75vh;
+                padding: 1.25rem;
+            }
+        }
+
+        /* Notebook styles */
+        @media (min-width: 1025px) and (max-width: 1366px) {
+            .brain-container {
+                max-width: clamp(320px, 40vw, 420px);
+            }
+            .info-panel {
+                width: clamp(300px, 28vw, 350px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Voltar</a>
+
+    <header class="hero">
+        <h1>Atlas Interativo do Cérebro Humano</h1>
+        <p class="subtitle">Explore as principais estruturas cerebrais e entenda suas funções, comportamentos associados e participação em emoções e processos mentais.</p>
+        <p class="note">As emoções não nascem em uma única área isolada, mas em redes cerebrais que trabalham juntas.</p>
+    </header>
+
+    <main class="main-container">
+        <section class="brain-section">
+            <div class="brain-container">
+                <svg class="brain-svg" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Córtex Cerebral -->
+                    <path class="brain-region" data-id="cortex-cerebral" fill="#9ca3af"
+                        d="M70 100 C70 60 120 30 180 30 C250 30 320 60 340 110 C360 170 365 230 350 290 C335 360 290 400 220 420 C160 435 100 410 70 350 C40 280 45 200 50 150 C52 125 60 110 70 100 Z"/>
+                    
+                    <!-- Córtex Pré-Frontal -->
+                    <path class="brain-region" data-id="cortex-prefrontal" fill="#d1d5db"
+                        d="M70 100 C75 80 95 60 130 55 C160 50 190 55 210 70 C225 85 230 100 225 115 C215 130 190 140 160 145 C130 150 95 145 75 130 C60 115 60 110 70 100 Z"/>
+                    
+                    <!-- Sulco Cingulado -->
+                    <path class="brain-region" data-id="cingulado" fill="#67e8f9"
+                        d="M120 160 Q150 145 190 145 Q240 150 270 170 Q290 190 285 215 Q275 245 245 255 Q210 262 175 255 Q140 245 130 220 Q125 190 120 160 Z"/>
+                    
+                    <!-- Corpo Caloso -->
+                    <path class="brain-region" data-id="corpo-caloso" fill="#c4b5fd"
+                        d="M110 130 Q150 110 200 108 Q260 112 295 135 Q315 155 305 180 Q290 210 250 225 Q200 235 155 225 Q115 210 105 180 Q95 155 110 130 Z"/>
+                    
+                    <!-- Diencéfalo -->
+                    <path class="brain-region" data-id="diencefalo" fill="#fde047"
+                        d="M175 200 Q200 185 230 195 Q255 210 255 240 Q250 275 225 295 Q195 310 170 290 Q150 265 160 235 Q165 215 175 200 Z"/>
+                    
+                    <!-- Tálamo -->
+                    <ellipse class="brain-region" data-id="talamo" fill="#fca5a5" cx="200" cy="230" rx="28" ry="20"/>
+                    
+                    <!-- Hipotálamo -->
+                    <ellipse class="brain-region" data-id="ipotalamo" fill="#fdba74" cx="200" cy="280" rx="20" ry="14"/>
+                    
+                    <!-- Comissura Anterior -->
+                    <path class="brain-region" data-id="comissura-anterior" fill="#d8b4fe"
+                        d="M165 265 Q185 255 210 260 Q235 268 245 285 Q250 305 235 320 Q210 335 180 325 Q155 310 160 290 Q162 275 165 265 Z"/>
+                    
+                    <!-- Lobo Temporal -->
+                    <path class="brain-region" data-id="lobo-temporal" fill="#6ee7b7"
+                        d="M55 200 C45 240 50 290 80 330 C110 375 160 395 200 390 C235 385 260 360 270 320 C280 275 275 230 255 200 C235 175 195 170 160 180 C120 190 80 195 55 200 Z"/>
+                    
+                    <!-- Amígdala -->
+                    <ellipse class="brain-region" data-id="amigdala" fill="#f472b6" cx="115" cy="265" rx="20" ry="16"/>
+                    
+                    <!-- Hipocampo -->
+                    <path class="brain-region" data-id="hipocampo" fill="#93c5fd"
+                        d="M85 290 Q75 270 90 250 Q115 225 150 240 Q180 260 175 295 Q168 330 140 345 Q105 360 85 330 Q70 305 85 290 Z"/>
+                    
+                    <!-- Mesencéfalo -->
+                    <path class="brain-region" data-id="mesencefalo" fill="#60a5fa"
+                        d="M175 310 Q200 295 230 305 Q255 320 255 350 Q250 385 225 405 Q195 420 170 400 Q150 375 160 345 Q165 325 175 310 Z"/>
+                    
+                    <!-- Ponte de Varólio -->
+                    <path class="brain-region" data-id="ponte" fill="#f9a8d4"
+                        d="M145 395 Q170 380 205 390 Q245 405 260 430 Q270 455 245 475 Q215 490 180 480 Q150 465 145 440 Q140 415 145 395 Z"/>
+                    
+                    <!-- Medula Oblonga -->
+                    <path class="brain-region" data-id="medula" fill="#a78bfa"
+                        d="M175 470 Q195 460 220 475 Q245 495 250 520 Q252 550 230 570 Q205 585 180 570 Q155 550 160 525 Q165 495 175 470 Z"/>
+                    
+                    <!-- Cerebelo -->
+                    <path class="brain-region" data-id="cerebelo" fill="#fb923c"
+                        d="M280 120 C320 110 355 140 365 190 C375 250 365 310 340 355 C315 400 275 420 240 415 C205 410 185 380 195 340 C205 295 240 250 260 200 C270 160 270 130 280 120 Z"/>
+                    
+                    <!-- Labels -->
+                    <text x="200" y="75" fill="#374151" font-size="7" text-anchor="middle" font-weight="600">Córtex Pré-Frontal</text>
+                    <text x="200" y="200" fill="#374151" font-size="6" text-anchor="middle">Tálamo</text>
+                    <text x="130" y="300" fill="#374151" font-size="6" text-anchor="middle">Hipocampo</text>
+                    <text x="115" y="265" fill="#374151" font-size="5.5" text-anchor="middle">Amígdala</text>
+                    <text x="310" y="270" fill="#374151" font-size="7" text-anchor="middle">Cerebelo</text>
+                    <text x="200" y="530" fill="#374151" font-size="6" text-anchor="middle">Medula</text>
+                </svg>
+            </div>
+            <div class="instruction">
+                <span class="instruction-icon">↔</span>
+                <span>Clique ou toque nas áreas do cérebro para explorar</span>
+            </div>
+        </section>
+
+        <aside class="info-panel" id="infoPanel">
+            <div class="panel-empty" id="panelEmpty">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+                <span>Selecione uma região do cérebro<br>para ver as informações</span>
+            </div>
+            <div id="panelContent" style="display: none;">
+                <div class="panel-header">
+                    <h2 class="region-name" id="regionName"></h2>
+                    <span class="region-latin" id="regionLatin"></span>
+                </div>
+                <div class="info-block">
+                    <span class="info-label">Função Principal</span>
+                    <p class="info-content" id="regionFuncao"></p>
+                </div>
+                <div class="info-block">
+                    <span class="info-label">Responsável por</span>
+                    <ul class="info-list" id="regionResponsavel"></ul>
+                </div>
+                <div class="info-block">
+                    <span class="info-label">Emoções e Processos Relacionados</span>
+                    <ul class="info-list" id="regionEmocoes"></ul>
+                </div>
+                <div class="info-block">
+                    <span class="info-label">Explicação</span>
+                    <p class="info-content" id="regionExplicacao"></p>
+                </div>
+                <div class="curiosity-block">
+                    <span class="info-label">Você Sabia?</span>
+                    <p class="info-content" id="regionCuriosidade"></p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-modal" id="mobileModal">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div class="panel-header">
+            <h2 class="region-name" id="mobileName"></h2>
+            <span class="region-latin" id="mobileLatin"></span>
+        </div>
+        <div class="info-block">
+            <span class="info-label">Função Principal</span>
+            <p class="info-content" id="mobileFuncao"></p>
+        </div>
+        <div class="info-block">
+            <span class="info-label">Responsável por</span>
+            <ul class="info-list" id="mobileResponsavel"></ul>
+        </div>
+        <div class="info-block">
+            <span class="info-label">Emoções e Processos</span>
+            <ul class="info-list" id="mobileEmocoes"></ul>
+        </div>
+        <div class="info-block">
+            <span class="info-label">Explicação</span>
+            <p class="info-content" id="mobileExplicacao"></p>
+        </div>
+        <div class="curiosity-block">
+            <span class="info-label">Você Sabia?</span>
+            <p class="info-content" id="mobileCuriosidade"></p>
+        </div>
+    </div>
+
+    <script>
+        const brainStructures = {
+            'cortex-cerebral': {
+                nome: 'Córtex Cerebral',
+                latin: 'Cerebral Cortex',
+                funcao: 'Pensamento complexo, percepção consciente, linguagem e tomada de decisões.',
+                responsavel: ['raciocínio', 'atenção', 'planejamento', 'controle consciente', 'percepção'],
+                emocoes: ['regulação emocional', 'interpretação consciente', 'controle de impulsos', 'consciência'],
+                explicacao: 'O córtex cerebral é a camada externa do cérebro, responsável pelas funções cognitivas superiores. Ele processa informações sensoriais, permite o pensamento abstrato, a linguagem e a tomada de decisões conscientes.',
+                curiosidade: 'Se o córtex cerebral fosse展开, teria aproximadamente o tamanho de um guardanapo de mesa!'
+            },
+            'cortex-prefrontal': {
+                nome: 'Córtex Pré-Frontal',
+                latin: 'Prefrontal Cortex',
+                funcao: 'Planejamento, decisão, inibição de impulsos e regulação emocional.',
+                responsavel: ['autocontrole', 'raciocínio', 'planejamento de longo prazo', 'tomada de decisões'],
+                emocoes: ['regulação emocional', 'impulsividade', 'disciplina', 'racionalidade'],
+                explicacao: 'O córtex pré-frontal é a parte "adulta" do cérebro. Ele permite pensar antes de agir, planejar o futuro, controlar impulsos e regular emoções.',
+                curiosidade: 'Ele só amadurece completamente por volta dos 25 anos! Por isso adolescentes tendem a ser mais impulsivos.'
+            },
+            'cingulado': {
+                nome: 'Córtex Cingunte',
+                latin: 'Cingulate Cortex',
+                funcao: 'Atenção, resolução de conflitos, motivação e integração entre emoção e cognição.',
+                responsavel: ['dor emocional', 'empatia', 'autorregulação', 'foco', 'tomada de decisão'],
+                emocoes: ['angústia', 'frustração', 'compaixão', 'esperança'],
+                explicacao: 'O córtex cingulado age como um mediador entre as emoções e o pensamento lógico. Ele nos ajuda a lidar com conflitos, regular nossas respostas emocionais e manter o foco em objetivos.',
+                curiosidade: 'Estudos mostram que pessoas com maior atividade no cíngulo anterior têm mais facilidade em controlar impulsos.'
+            },
+            'corpo-caloso': {
+                nome: 'Corpo Caloso',
+                latin: 'Corpus Callosum',
+                funcao: 'Comunicação entre os hemisférios cerebrais esquerdo e direito.',
+                responsavel: ['integração de informações', 'coordenação cerebral', 'visão integrada'],
+                emocoes: ['coordenação emocional', 'equilíbrio entre razão e emoção'],
+                explicacao: 'O corpo caloso é um feixe de fibras nervosas que conecta os dois hemisférios do cérebro, permitindo que eles compartilhem informações e trabalhem em conjunto.',
+                curiosidade: 'Pessoas nascidas sem corpo caloso (agênese) desenvolvem conexões alternativas para compensar!'
+            },
+            'diencefalo': {
+                nome: 'Diencéfalo',
+                latin: 'Diencephalon',
+                funcao: 'Integração sensorial e regulação de funções internas do corpo.',
+                responsavel: ['alerta', 'estresse', 'reações corporais', 'homeostase'],
+                emocoes: ['ativação', 'vigilância', 'resposta ao estresse'],
+                explicacao: 'O diencéfalo é uma região que inclui o tálamo e o hipotálamo, funcionando como uma estação de integração entre diferentes partes do cérebro e o resto do corpo.',
+                curiosidade: 'Ele age como um "hub" central que distribui informações para todo o cérebro.'
+            },
+            'talamo': {
+                nome: 'Tálamo',
+                latin: 'Thalamus',
+                funcao: 'Retransmissão de sinais sensoriais e regulação da atenção.',
+                responsavel: ['percepção', 'foco', 'priorização de estímulos', 'consciência'],
+                emocoes: ['atenção emocional', 'foco em ameaças', 'percepção sensorial'],
+                explicacao: 'O tálamo funciona como uma estação de retransmissão que direciona informações sensoriais (exceto olfato) para as partes apropriadas do cérebro para processamento.',
+                curiosidade: 'Quando você "vê estrelas" após um golpe na cabeça, é o tálamo sendo estimulado diretamente!'
+            },
+            'ipotalamo': {
+                nome: 'Hipotálamo',
+                latin: 'Hypothalamus',
+                funcao: 'Homeostase, controle hormonal e respostas automáticas do corpo.',
+                responsavel: ['fome', 'sede', 'temperatura corporal', 'ciclo sono-vigília', 'estresse'],
+                emocoes: ['agitação', 'ansiedade', 'calmaria', 'equilíbrio interno'],
+                explicacao: 'O hipotálamo é o "termostato" do corpo. Ele regula funções vitais como temperatura, fome, sede, sono e respostas ao estresse, mantendo o equilíbrio interno do organismo.',
+                curiosidade: 'Ele controla a glândula pituitária, que por sua vez controla quase todos os hormônios do corpo!'
+            },
+            'comissura-anterior': {
+                nome: 'Comissura Anterior',
+                latin: 'Anterior Commissure',
+                funcao: 'Comunicação entre regiões temporais e integração entre hemisférios.',
+                responsavel: ['integração sensorial', 'contexto emocional', 'memória olfativa'],
+                emocoes: ['respostas emocionais integradas', 'memória emocional'],
+                explicacao: 'A comissura anterior é um feixe de fibras que conecta as partes anteriores dos hemisférios cerebrais, especialmente as regiões temporais envolvidas com olfato e emoção.',
+                curiosidade: 'Ela é uma das primeiras estruturas a se formar no desenvolvimento cerebral.'
+            },
+            'lobo-temporal': {
+                nome: 'Lobo Temporal',
+                latin: 'Temporal Lobe',
+                funcao: 'Audição, memória, compreensão da linguagem e processamento de significados.',
+                responsavel: ['memória', 'reconhecimento de rostos', 'compreensão verbal'],
+                emocoes: ['memória emocional', 'nostalgia', 'reconhecimento familiar'],
+                explicacao: 'O lobo temporal processa informações auditivas, é essencial para a compreensão da linguagem e abriga estruturas importantes para a memória, como o hipocampo.',
+                curiosidade: 'É por isso que músicas podem evocar memórias tão fortes - elas passam pelo lobo temporal!'
+            },
+            'mesencefalo': {
+                nome: 'Mesencéfalo',
+                latin: 'Midbrain',
+                funcao: 'Reflexos, alerta, movimento ocular e resposta rápida a estímulos.',
+                responsavel: ['vigilância', 'reatividade', 'orientação a estímulos', 'movimento dos olhos'],
+                emocoes: ['alerta imediato', 'surpresa', 'reatividade'],
+                explicacao: 'O mesencéfalo é uma das partes mais antigas do cérebro, responsável por respostas rápidas a estímulos, controle dos movimentos oculares e manutenção do estado de alerta.',
+                curiosidade: 'Ele contém a substância negra, cuja degeneração causa doença de Parkinson.'
+            },
+            'ponte': {
+                nome: 'Ponte de Varólio',
+                latin: 'Pons',
+                funcao: 'Conexão entre estruturas cerebrais e regulação do sono.',
+                responsavel: ['vigília', 'ativação corporal', 'regulação do sono', 'respiração'],
+                emocoes: ['estado de alerta', 'relaxamento'],
+                explicacao: 'A ponte é uma estrutura de conexão que facilita a comunicação entre diferentes partes do cérebro e atua na regulação do ciclo sono-vigília.',
+                curiosidade: 'Durante o sono REM, a ponte bloqueia os sinais motores, impedindo que actingamos nossos sonhos!'
+            },
+            'medula': {
+                nome: 'Medula Oblonga',
+                latin: 'Medulla Oblongata',
+                funcao: 'Controle de funções vitais automáticas essenciais para a sobrevivência.',
+                responsavel: ['respiração', 'batimento cardíaco', 'reflexos vitais', 'pressão arterial'],
+                emocoes: ['respostas de sobrevivência', 'medo instintivo'],
+                explicacao: 'A medula oblonga é a parte mais inferior do cérebro, controlando funções automaticamente que mantêm você vivo, como respirar e batimentos cardíacos.',
+                curiosidade: 'É por isso que lesões na medula podem ser fatais - ela controla funções que não podemos controlar conscientemente.'
+            },
+            'cerebelo': {
+                nome: 'Cerebelo',
+                latin: 'Cerebellum',
+                funcao: 'Coordenação motora, equilíbrio, precisão e automatização de movimentos.',
+                responsavel: ['equilíbrio', 'precisão motora', 'aprendizagem motora', 'timing'],
+                emocoes: ['precisão emocional', 'automatização de reações'],
+                explicacao: 'O cerebelo é como o "computador de movimento" do cérebro. Ele coordena movimentos voluntários, mantém o equilíbrio e ajuda a automatizar habilidades motoras.',
+                curiosidade: 'Atletas de elite têm cerebelo especialmente desenvolvido. Músicos e dançarinos têm mais matéria cinzenta no cerebelo!'
+            },
+            'amigdala': {
+                nome: 'Amígdala',
+                latin: 'Amygdala',
+                funcao: 'Processamento emocional e detecção de ameaças.',
+                responsavel: ['medo', 'alerta', 'aprendizagem emocional', 'respostas de estresse'],
+                emocoes: ['medo', 'ansiedade', 'pânico', 'raiva', 'alerta'],
+                explicacao: 'A amígdala é o sistema de alarme do cérebro. Ela detecta ameaças potenciais e ativa respostas de medo ou estresse antes mesmo de termos consciência do perigo.',
+                curiosidade: 'Ela pode ativar respostas de "lutar ou fugir" em milissegundos, antes mesmo de você perceber o perigo!'
+            },
+            'hipocampo': {
+                nome: 'Hipocampo',
+                latin: 'Hippocampus',
+                funcao: 'Formação de memórias, navegação espacial e contextualização.',
+                responsavel: ['memória', 'aprendizagem', 'associação de experiências', 'direção'],
+                emocoes: ['memória emocional', 'recordações', 'nostalgia', 'deja vu'],
+                explicacao: 'O hipocampo é essencial para converter experiências temporárias em memórias de longo prazo. Ele também nos ajuda a navegar no espaço e recordar contextos.',
+                curiosidade: 'Taxistas londrinos têm hipocampo maior - ele cresce com a prática de navegação!'
+            }
+        };
+
+        const regions = document.querySelectorAll('.brain-region');
+        const infoPanel = document.getElementById('infoPanel');
+        const panelEmpty = document.getElementById('panelEmpty');
+        const panelContent = document.getElementById('panelContent');
+        const mobileModal = document.getElementById('mobileModal');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const modalClose = document.getElementById('modalClose');
+
+        const regionName = document.getElementById('regionName');
+        const regionLatin = document.getElementById('regionLatin');
+        const regionFuncao = document.getElementById('regionFuncao');
+        const regionResponsavel = document.getElementById('regionResponsavel');
+        const regionEmocoes = document.getElementById('regionEmocoes');
+        const regionExplicacao = document.getElementById('regionExplicacao');
+        const regionCuriosidade = document.getElementById('regionCuriosidade');
+
+        const mobileName = document.getElementById('mobileName');
+        const mobileLatin = document.getElementById('mobileLatin');
+        const mobileFuncao = document.getElementById('mobileFuncao');
+        const mobileResponsavel = document.getElementById('mobileResponsavel');
+        const mobileEmocoes = document.getElementById('mobileEmocoes');
+        const mobileExplicacao = document.getElementById('mobileExplicacao');
+        const mobileCuriosidade = document.getElementById('mobileCuriosidade');
+
+        let isMobile = window.innerWidth <= 768;
+
+        // Update on resize
+        window.addEventListener('resize', () => {
+            isMobile = window.innerWidth <= 768;
+        });
+
+        function updatePanel(data) {
+            regionName.textContent = data.nome;
+            regionLatin.textContent = data.latin;
+            regionFuncao.textContent = data.funcao;
+            regionExplicacao.textContent = data.explicacao;
+            regionCuriosidade.textContent = data.curiosidade;
+            regionResponsavel.innerHTML = data.responsavel.map(item => `<li>${item}</li>`).join('');
+            regionEmocoes.innerHTML = data.emocoes.map(item => `<li>${item}</li>`).join('');
+
+            mobileName.textContent = data.nome;
+            mobileLatin.textContent = data.latin;
+            mobileFuncao.textContent = data.funcao;
+            mobileExplicacao.textContent = data.explicacao;
+            mobileCuriosidade.textContent = data.curiosidade;
+            mobileResponsavel.innerHTML = data.responsavel.map(item => `<li>${item}</li>`).join('');
+            mobileEmocoes.innerHTML = data.emocoes.map(item => `<li>${item}</li>`).join('');
+        }
+
+        function showInfo(regionId) {
+            const data = brainStructures[regionId];
+            if (!data) return;
+
+            regions.forEach(r => r.classList.remove('active'));
+            document.querySelector(`[data-id="${regionId}"]`).classList.add('active');
+
+            panelEmpty.style.display = 'none';
+            panelContent.style.display = 'flex';
+            panelContent.style.flexDirection = 'column';
+            panelContent.style.gap = '1rem';
+
+            updatePanel(data);
+
+            if (isMobile) {
+                mobileModal.classList.add('open');
+                mobileOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            mobileModal.classList.remove('open');
+            mobileOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Support both click and touch events
+        regions.forEach(region => {
+            const handleRegionClick = (e) => {
+                e.preventDefault();
+                const regionId = region.dataset.id;
+                showInfo(regionId);
+            };
+            
+            region.addEventListener('click', handleRegionClick);
+            region.addEventListener('touchend', handleRegionClick);
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        mobileOverlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Handle resize to update mobile state
+        window.addEventListener('resize', () => {
+            isMobile = window.innerWidth <= 768;
+            if (!isMobile) {
+                mobileModal.classList.remove('open');
+                mobileOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

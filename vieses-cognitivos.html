@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vieses Cognitivos - Atlas da Mente Humana</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Atlas da Mente</span>
+            </a>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Buscar tópicos..." autocomplete="off">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../pages/emocoes.html">Emoções</a></li>
+                <li><a href="../pages/personalidade.html">Personalidade</a></li>
+                <li><a href="../pages/cognicao.html">Cognição</a></li>
+                <li><a href="../pages/trauma.html">Trauma</a></li>
+                <li><a href="../pages/relacoes.html">Relações</a></li>
+                <li><a href="../pages/decisoes.html">Decisões</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="topic-header">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="../index.html">Início</a>
+                <span>›</span>
+                <a href="../pages/cognicao.html">Cognição</a>
+                <span>›</span>
+                <span class="current">Vieses Cognitivos</span>
+            </div>
+            <h1 class="page-title">Vieses Cognitivos</h1>
+            <p class="page-desc">Padrões de pensamento que distorcem nossa percepção da realidade.</p>
+        </div>
+    </header>
+
+    <section class="topic-content">
+        <div class="container">
+            <div class="topic-section">
+                <h2><span class="section-icon">📖</span> O que são Vieses Cognitivos?</h2>
+                <p>Vieses cognitivos são padrões sistemáticos de desvio na tomada de decisões que levam a julgamentos ilógicos ou imprecisos. São atalhos mentais que nosso cérebro usa para processar informações rapidamente, mas que podem levar a erros sistemáticos.</p>
+                <p>Estes vieses foram identificados e documentados por pesquisadores como Daniel Kahneman, Amos Tversky e outros. Compreender esses padrões é fundamental para tomar melhores decisões, evitar erros de julgamento e entender melhor o comportamento humano.</p>
+            </div>
+
+            <div class="topic-section">
+                <h2><span class="section-icon">🔄</span> Principais Vieses Cognitivos</h2>
+                <ul>
+                    <li><strong>Viés de Confirmação:</strong> Tendência a buscar, interpretar e lembrar informações de forma que confirme nossas crenças pré-existentes.</li>
+                    <li><strong>Viés de Ancoragem:</strong> Depender excessivamente da primeira informação recebida (a "âncora") ao tomar decisões.</li>
+                    <li><strong>Viés de Disponibilidade:</strong> Julgar a probabilidade de eventos com base na facilidade com que exemplos vêm à mente.</li>
+                    <li><strong>Viés de Otimismo:</strong> Tendência a superestimar resultados positivos e subestimar resultados negativos para nós mesmos.</li>
+                    <li><strong>Viés de Aversão à Perda:</strong> Perceber perdas como mais significativas do que ganhos equivalentes (perder R$100 dói mais do que ganhar R$100 alegra).</li>
+                    <li><strong>Viés de Autosserviço:</strong> Atribuir sucesso a nós mesmos e fracasso a fatores externos.</li>
+                    <li><strong>Efeito de Enquadramento:</strong> Ser influenciado por como a informação é apresentada (positiva vs. negativamente).</li>
+                    <li><strong>Viés de Hindsight:</strong> Tendência a ver eventos passados como previsíveis após eles terem ocorrido ("eu sabia disso").</li>
+                </ul>
+            </div>
+
+            <div class="topic-section">
+                <h2><span class="section-icon">⚡</span> Por que Temos Vieses?</h2>
+                <ul>
+                    <li><strong>Sobrevivência:</strong> Atalhos mentais eram adaptativos em ambientes primitivos.</li>
+                    <li><strong>Capacidade Limitada:</strong> Nosso cérebro não consegue processar todas as informações disponíveis.</li>
+                    <li><strong>Eficiência:</strong> Nem sempre precisamos de análises completas - vieses economizam tempo.</li>
+                    <li><strong>Emoções:</strong> Sentimentos frequentemente influenciam julgamentos de formas previsíveis.</li>
+                    <li><strong>Heurísticas:</strong> "Regras de ouro" que geralmente funcionam, mas às vezes falham.</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Exemplo Prático</h4>
+                <p>Após ler um artigo sobre os benefícios de uma dieta específica, Mariana compartilha imediatamente com seus amigos, convencida de que é a melhor abordagem. Ela não percebe que o artigo era de um site que vende suplementos dessa dieta. Quando amigos apontam críticas, ela as descarta como "inveja" ou "falta de informação". Este exemplo ilustra o viés de confirmação (busca apenas informações que confirmem sua crença) e o viés de autosserviço (ignora evidências contrárias).</p>
+            </div>
+
+            <div class="topic-section">
+                <h2><span class="section-icon">💡</span> Como Minimizar Vieses</h2>
+                <ul>
+                    <li><strong>Autoconsciência:</strong> Reconhecer que somos todos suscetíveis a vieses é o primeiro passo.</li>
+                    <li><strong>Buscar Contradições:</strong> Ativamente procurar evidências que contradigam suas crenças.</li>
+                    <li><strong>Pensamento Probabilístico:</strong> Considerar explicitamente probabilidades e estatísticas.</li>
+                    <li><strong>Decisões em Equipe:</strong> Diversos pontos de vista podem compensar vieses individuais.</li>
+                    <li><strong>Pausar Antes de Decidir:</strong> Dar tempo para reflexão reduz decisões apressadas.</li>
+                    <li><strong>Verificar Fontes:</strong> Avaliar a qualidade e motivação por trás das informações.</li>
+                    <li><strong>Manter um "Diário de Decisões":</strong> Registrar decisões e seus resultados ajuda a identificar padrões.</li>
+                </ul>
+            </div>
+
+            <div class="topic-section">
+                <h2><span class="section-icon">🔗</span> Conceitos Relacionados</h2>
+                <div class="related-topics">
+                    <a href="tomada-de-decisao.html" class="related-topic-card">
+                        <h4>Tomada de Decisão</h4>
+                        <p>Processo de escolha influenciado por vieses.</p>
+                    </a>
+                    <a href="memoria.html" class="related-topic-card">
+                        <h4>Memória</h4>
+                        <p>Como vieses afetam a recordação de eventos.</p>
+                    </a>
+                    <a href="ansiedade.html" class="related-topic-card">
+                        <h4>Ansiedade</h4>
+                        <p>Como a ansiedade pode amplificar vieses.</p>
+                    </a>
+                    <a href="introversao-extroversao.html" class="related-topic-card">
+                        <h4>Introversão e Extroversão</h4>
+                        <p>Traços de personalidade que influenciam decisões.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">Atlas da Mente</span>
+                    </a>
+                    <p>Uma jornada pelo universo da mente humana.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Áreas</h4>
+                        <ul>
+                            <li><a href="../pages/cognicao.html">Cognição</a></li>
+                            <li><a href="../pages/decisoes.html">Decisões</a></li>
+                            <li><a href="../pages/emocoes.html">Emoções</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Atlas da Mente Humana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>

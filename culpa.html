@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culpa - Atlas da Mente Humana</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Atlas da Mente</span>
+            </a>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Buscar tópicos..." autocomplete="off">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../pages/emocoes.html" class="active">Emoções</a></li>
+                <li><a href="../pages/personalidade.html">Personalidade</a></li>
+                <li><a href="../pages/cognicao.html">Cognição</a></li>
+                <li><a href="../pages/trauma.html">Trauma</a></li>
+                <li><a href="../pages/relacoes.html">Relações</a></li>
+                <li><a href="../pages/decisoes.html">Decisões</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html" class="breadcrumb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Início</span>
+                </a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="../pages/emocoes.html" class="breadcrumb-item">Emoções</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item current">Culpa</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-bg">
+            <div class="header-pattern"></div>
+            <div class="header-glow"></div>
+        </div>
+        <div class="container">
+            <a href="../pages/emocoes.html" class="back-button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Voltar para Emoções</span>
+            </a>
+            <div class="page-header-content">
+                <div class="page-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M16 16s-1.5-2-4-2-4 2-4 2"/>
+                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                    </svg>
+                </div>
+                <h1 class="page-title">Culpa</h1>
+                <p class="page-desc">O sentimento de responsabilidade por ações ou omissões percebidas como erradas. Entenda como lidar com a culpa de forma saudável.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <section class="topic-content">
+        <div class="container">
+            <div class="content-block">
+                <h2>O Que É a Culpa?</h2>
+                <p>A culpa é uma emoção complexa que surge quando acreditamos ter violado um padrão moral ou ético, ou quando acreditamos ter causado dano a outros. É uma emoção que tem raízes sociais e nos ajuda a manter normas e relacionamentos saudáveis.</p>
+                <p>Enquanto a vergonha está relacionada à percepção de que nós mesmos somos ruins, a culpa está mais ligada a ações específicas que tomamos ou deixamos de tomar.</p>
+            </div>
+
+            <div class="content-block">
+                <h2>Tipos de Culpa</h2>
+                <p>A culpa pode se manifestar de diferentes formas:</p>
+                <ul class="content-list">
+                    <li><strong>Culpa adaptativa:</strong> Resposta proporcional a uma ação errada real, leva à reparação</li>
+                    <li><strong>Culpa crônica:</strong> Sentimento persistente de culpa que não corresponde à realidade</li>
+                    <li><strong>Culpa desproporcional:</strong> Culpa excessiva por pequenos erros ou situações fora do controle</li>
+                    <li><strong>Culpa survivor:</strong> Sentimento de culpa por ter escapado de uma situação que outros não escaparam</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h2>A Função Social da Culpa</h2>
+                <p>A culpa desempenha funções importantes na sociedade:</p>
+                <ul class="content-list">
+                    <li><strong>Regulação moral:</strong> Nos ajuda a seguir regras e normas sociais</li>
+                    <li><strong>Reparação:</strong> Motiva-nos a corrigir erros e pedir desculpas</li>
+                    <li><strong>Manutenção de relacionamentos:</strong> Preserva a confiança e a coesão social</li>
+                    <li><strong>Aprendizagem:</strong> Nos ensina a evitar comportamentos prejudiciais no futuro</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h2>Lidando com a Culpa</h2>
+                <p>Quando a culpa se torna excessiva ou irracional, pode ser prejudicial. Aqui estão algumas estratégias:</p>
+                <ul class="content-list">
+                    <li><strong>Evalie a situação:</strong> A culpa é proporcional ao erro?</li>
+                    <li><strong>Peça desculpas:</strong> Quando apropriado, a reparação pode aliviar a culpa</li>
+                    <li><strong>Pratique a autocompaixão:</strong> Trate-se com a mesma gentileza que trataria um amigo</li>
+                    <li><strong>Aprenda com o erro:</strong> Use a experiência para crescer</li>
+                    <li><strong>Busque ajuda profissional:</strong> Se a culpa é persistente e debilitante</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Topics -->
+    <section class="related-section">
+        <div class="container">
+            <div class="related-content">
+                <h3>Tópicos Relacionados</h3>
+                <div class="related-cards">
+                    <a href="raiva.html" class="related-card">
+                        <div class="related-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M16 16s-1.5-2-4-2-4 2-4 2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                        </div>
+                        <div class="related-info">
+                            <h4>Raiva</h4>
+                            <p>Emoção intensa de frustração</p>
+                        </div>
+                    </a>
+                    <a href="tristeza.html" class="related-card">
+                        <div class="related-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M16 16s-1.5-2-4-2-4 2-4 2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                        </div>
+                        <div class="related-info">
+                            <h4>Tristeza</h4>
+                            <p>Emoção de dor emocional</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">Atlas da Mente</span>
+                    </a>
+                    <p>Uma jornada pelo universo da mente humana, explorando emoções, comportamentos e a complexidade que nos define.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Áreas</h4>
+                        <ul>
+                            <li><a href="../pages/emocoes.html">Emoções</a></li>
+                            <li><a href="../pages/personalidade.html">Personalidade</a></li>
+                            <li><a href="../pages/cognicao.html">Cognição</a></li>
+                            <li><a href="../pages/trauma.html">Trauma</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Atlas da Mente Humana. Projeto educacional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas da Mente Humana | Guia Interativo de Psicologia</title>
+    <meta name="description" content="Explore a mente humana como um mapa interativo. Aprenda psicologia e comportamento humano através de conceitos conectados e trilhas de estudo.">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Atlas da Mente</span>
+            </a>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Buscar conceito psicológico..." autocomplete="off">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="active">Início</a></li>
+                <li><a href="#trilhas">Trilhas</a></li>
+                <li><a href="#areas">Territórios</a></li>
+                <li><a href="atlas-cerebral.html">Atlas Cerebral</a></li>
+                <li><a href="#perfil">Seu Caminho</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+                <li><a href="#topicos">Tópicos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-particles"></div>
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Atlas da Mente Humana</span>
+            </h1>
+            <p class="hero-subtitle">Explore conceitos psicológicos que moldam emoções, comportamento e decisões.</p>
+            <div class="hero-buttons">
+                <a href="#conceitos" class="btn btn-primary">
+                    <span>Explorar conceitos</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="atlas-cerebral.html" class="btn btn-secondary" target="_blank">
+                    <span>Explorar o Atlas Cerebral</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Áreas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">16+</span>
+                    <span class="stat-label">Conceitos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Gratuito</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll para explorar</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- Concept Cards Grid -->
+    <section class="conceitos-section" id="conceitos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Conceitos Fundamentais</span>
+                <h2 class="section-title">Explore os Conceitos</h2>
+                <p class="section-desc">Descubra os conceitos psicológicos que moldam a forma como pensamos, sentimos e agimos.</p>
+            </div>
+
+            <div class="conceitos-grid">
+                <a href="topics/trauma-infantil.html" class="conceito-card">
+                    <div class="conceito-icon">🧠</div>
+                    <h3>Trauma</h3>
+                    <p>Experiências emocionais profundas que deixam marcas na psique e influenciam padrões de comportamento.</p>
+                    <span class="conceito-link">Explorar →</span>
+                </a>
+
+                <a href="topics/apego.html" class="conceito-card">
+                    <div class="conceito-icon">💕</div>
+                    <h3>Teoria do Apego</h3>
+                    <p>Como os vínculos formados na infância influenciam nossos relacionamentos adultos.</p>
+                    <span class="conceito-link">Explorar →</span>
+                </a>
+
+                <a href="topics/ansiedade.html" class="conceito-card">
+                    <div class="conceito-icon">😰</div>
+                    <h3>Ansiedade</h3>
+                    <p>O mecanismo de alerta que pode se tornar debilitante quando excessivo.</p>
+                    <span class="conceito-link">Explorar →</span>
+                </a>
+
+                <a href="topics/vieses-cognitivos.html" class="conceito-card">
+                    <div class="conceito-icon">🔄</div>
+                    <h3>Autossabotagem</h3>
+                    <p>Padrões inconscientes que nos impedem de alcançar nossos objetivos.</p>
+                    <span class="conceito-link">Explorar →</span>
+                </a>
+
+                <a href="pages/emocoes.html" class="conceito-card">
+                    <div class="conceito-icon">🎭</div>
+                    <h3>Padrões Emocionais</h3>
+                    <p>Como nossas emoções seguem padrões previsíveis e como reconhecê-los.</p>
+                    <span class="conceito-link">Explorar →</span>
+                </a>
+
+                <a href="pages/relacoes.html" class="conceito-card">
+                    <div class="conceito-icon">🤝</div>
+                    <h3>Relacionamentos</h3>
+                    <p>A dinâmica entre conexão, comunicação e limites em relações humanas.</p>
+                    <span class="conceito-link">Explorar →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trilhas de Aprendizado -->
+    <section class="trilhas-section" id="trilhas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Caminhos de Aprendizado</span>
+                <h2 class="section-title">Trilhas de Estudo</h2>
+                <p class="section-desc">Siga trilhas estruturadas para aprender de forma progressiva.</p>
+            </div>
+
+            <div class="trilhas-grid">
+                <div class="trilha-card">
+                    <div class="trilha-header">
+                        <div class="trilha-icon">🌱</div>
+                        <div class="trilha-info">
+                            <h3>Iniciando na Psicologia</h3>
+                            <p>Uma introdução aos conceitos fundamentais</p>
+                        </div>
+                    </div>
+                    <div class="trilha-meta">
+                        <span class="meta-item">4 tópicos</span>
+                        <span class="meta-item">~45 min</span>
+                    </div>
+                    <div class="trilha-topics">
+                        <span class="topic-tag">Emoções</span>
+                        <span class="topic-tag">Cognição</span>
+                        <span class="topic-tag">Personalidade</span>
+                    </div>
+                    <a href="pages/emocoes.html" class="trilha-btn">Iniciar Trilha</a>
+                </div>
+
+                <div class="trilha-card">
+                    <div class="trilha-header">
+                        <div class="trilha-icon">🧩</div>
+                        <div class="trilha-info">
+                            <h3>Entendendo a Ansiedade</h3>
+                            <p>Do sistema de ameaça à regulação emocional</p>
+                        </div>
+                    </div>
+                    <div class="trilha-meta">
+                        <span class="meta-item">3 tópicos</span>
+                        <span class="meta-item">~30 min</span>
+                    </div>
+                    <div class="trilha-topics">
+                        <span class="topic-tag">Ansiedade</span>
+                        <span class="topic-tag">Vieses</span>
+                        <span class="topic-tag">Regulação</span>
+                    </div>
+                    <a href="topics/ansiedade.html" class="trilha-btn">Iniciar Trilha</a>
+                </div>
+
+                <div class="trilha-card">
+                    <div class="trilha-header">
+                        <div class="trilha-icon">💜</div>
+                        <div class="trilha-info">
+                            <h3>Psicologia das Relações</h3>
+                            <p>Apego, comunicação e dinâmicas interpessoais</p>
+                        </div>
+                    </div>
+                    <div class="trilha-meta">
+                        <span class="meta-item">3 tópicos</span>
+                        <span class="meta-item">~35 min</span>
+                    </div>
+                    <div class="trilha-topics">
+                        <span class="topic-tag">Apego</span>
+                        <span class="topic-tag">Comunicação</span>
+                        <span class="topic-tag">Conflitos</span>
+                    </div>
+                    <a href="topics/apego.html" class="trilha-btn">Iniciar Trilha</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas Principais -->
+    <section class="areas-section" id="areas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Áreas do Conhecimento</span>
+                <h2 class="section-title">Territórios da Mente</h2>
+                <p class="section-desc">Navegue pelas principais áreas da psicologia e descubra os mecanismos que definem a experiência humana.</p>
+            </div>
+
+            <div class="areas-grid">
+                <a href="pages/emocoes.html" class="area-card">
+                    <div class="area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                    </div>
+                    <h3>Emoções</h3>
+                    <p>Explore o universo dos sentimentos humanos, desde a alegria até a ansiedade, e compreenda como as emoções moldam nossa experiência.</p>
+                    <div class="area-meta"><span>6 conceitos</span></div>
+                    <span class="area-link">Explorar →</span>
+                </a>
+
+                <a href="pages/personalidade.html" class="area-card">
+                    <div class="area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>Personalidade</h3>
+                    <p>Descubra os traços que definem quem somos, desde o Big Five até dinâmicas complexas como narcisismo e empatia.</p>
+                    <div class="area-meta"><span>5 conceitos</span></div>
+                    <span class="area-link">Explorar →</span>
+                </a>
+
+                <a href="pages/cognicao.html" class="area-card">
+                    <div class="area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                            <path d="M12 2a10 10 0 0 1 10 10"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Cognição</h3>
+                    <p>Entenda como processamos informações, formamos memórias, e os vieses que influenciam nosso pensamento.</p>
+                    <div class="area-meta"><span>3 conceitos</span></div>
+                    <span class="area-link">Explorar →</span>
+                </a>
+
+                <a href="pages/trauma.html" class="area-card">
+                    <div class="area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Trauma</h3>
+                    <p>Compreenda as feridas psicológicas, seus efeitos e os caminhos para cura e resiliência.</p>
+                    <div class="area-meta"><span>3 conceitos</span></div>
+                    <span class="area-link">Explorar →</span>
+                </a>
+
+                <a href="pages/relacoes.html" class="area-card">
+                    <div class="area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Relações Humanas</h3>
+                    <p>Explore os vínculos que formamos, desde apego até manipulação, e a dinâmica que rege nossas conexões.</p>
+                    <div class="area-meta"><span>3 conceitos</span></div>
+                    <span class="area-link">Explorar →</span>
+                </a>
+
+                <a href="pages/decisoes.html" class="area-card">
+                    <div class="area-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polyline points="9 11 12 14 22 4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+                    </div>
+                    <h3>Tomada de Decisão</h3>
+                    <p>Descubra como escolhemos, os vieses que nos enganam e os mecanismos por trás de nossas escolhas.</p>
+                    <div class="area-meta"><span>2 conceitos</span></div>
+                    <span class="area-link">Explorar →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa da Mente -->
+    <section class="mapa-section" id="mapa">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Navegação Mental</span>
+                <h2 class="section-title">Mapa da Mente</h2>
+                <p class="section-desc">Uma representação visual interativa das conexões entre os territórios da mente humana.</p>
+            </div>
+
+            <div class="mapa-container">
+                <svg class="mapa-svg" viewBox="0 0 800 500">
+                    <g class="mapa-lines">
+                        <line x1="400" y1="80" x2="200" y2="180" class="mapa-line"/>
+                        <line x1="400" y1="80" x2="600" y2="180" class="mapa-line"/>
+                        <line x1="400" y1="80" x2="150" y2="350" class="mapa-line"/>
+                        <line x1="400" y1="80" x2="650" y2="350" class="mapa-line"/>
+                        <line x1="200" y1="180" x2="150" y2="350" class="mapa-line"/>
+                        <line x1="600" y1="180" x2="650" y2="350" class="mapa-line"/>
+                        <line x1="200" y1="180" x2="400" y2="420" class="mapa-line"/>
+                        <line x1="600" y1="180" x2="400" y2="420" class="mapa-line"/>
+                        <line x1="150" y1="350" x2="400" y2="420" class="mapa-line"/>
+                        <line x1="650" y1="350" x2="400" y2="420" class="mapa-line"/>
+                    </g>
+
+                    <a href="index.html" class="mapa-node central">
+                        <circle cx="400" cy="80" r="45" class="node-circle"/>
+                        <text x="400" y="85" class="node-text">MENTE</text>
+                    </a>
+
+                    <a href="pages/emocoes.html" class="mapa-node">
+                        <circle cx="200" cy="180" r="35" class="node-circle"/>
+                        <text x="200" y="185" class="node-text">Emoções</text>
+                    </a>
+
+                    <a href="pages/cognicao.html" class="mapa-node">
+                        <circle cx="600" cy="180" r="35" class="node-circle"/>
+                        <text x="600" y="185" class="node-text">Cognição</text>
+                    </a>
+
+                    <a href="pages/trauma.html" class="mapa-node">
+                        <circle cx="150" cy="350" r="35" class="node-circle"/>
+                        <text x="150" y="355" class="node-text">Trauma</text>
+                    </a>
+
+                    <a href="pages/relacoes.html" class="mapa-node">
+                        <circle cx="650" cy="350" r="35" class="node-circle"/>
+                        <text x="650" y="355" class="node-text">Relações</text>
+                    </a>
+
+                    <a href="pages/personalidade.html" class="mapa-node">
+                        <circle cx="280" cy="420" r="35" class="node-circle"/>
+                        <text x="280" y="425" class="node-text">Personalidade</text>
+                    </a>
+
+                    <a href="pages/decisoes.html" class="mapa-node">
+                        <circle cx="520" cy="420" r="35" class="node-circle"/>
+                        <text x="520" y="425" class="node-text">Decisões</text>
+                    </a>
+                </svg>
+
+                <div class="mapa-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot"></span>
+                        <span>Clique nos nós para navegar</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-line"></span>
+                        <span>Conexões entre conceitos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="how-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Experiência</span>
+                <h2 class="section-title">Como Funciona</h2>
+            </div>
+
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-number">01</div>
+                    <h3>Explore Áreas</h3>
+                    <p>Navegue por territórios da mente como emoções, personalidade, trauma e muito mais.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-number">02</div>
+                    <h3>Acesse Tópicos</h3>
+                    <p>Cada área contém tópicos específicos com explicações profundas e acessíveis.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-number">03</div>
+                    <h3>Descubra Conexões</h3>
+                    <p>Explore como os conceitos se relacionam entre si em um sistema integrado.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-number">04</div>
+                    <h3>Aprenda Organizado</h3>
+                    <p>Conteúdo estruturado para facilitar a compreensão e retenção do conhecimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tópicos em Destaque -->
+    <section class="featured-section" id="topicos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Em Destaque</span>
+                <h2 class="section-title">Conceitos Mais Procurados</h2>
+                <p class="section-desc">Explore os conceitos mais procurados e fundamentais da psicologia.</p>
+            </div>
+
+            <div class="featured-grid">
+                <a href="topics/ansiedade.html" class="featured-card">
+                    <div class="featured-tag">Emoções</div>
+                    <h3>Ansiedade</h3>
+                    <p>Compreenda o mecanismo por trás desse sentimento universal e suas manifestações.</p>
+                    <span class="featured-link">Ler mais →</span>
+                </a>
+
+                <a href="topics/trauma-infantil.html" class="featured-card">
+                    <div class="featured-tag">Trauma</div>
+                    <h3>Trauma Infantil</h3>
+                    <p>Entenda como experiências na infância moldam o desenvolvimento emocional.</p>
+                    <span class="featured-link">Ler mais →</span>
+                </a>
+
+                <a href="topics/apego.html" class="featured-card">
+                    <div class="featured-tag">Relações</div>
+                    <h3>Teoria do Apego</h3>
+                    <p>Descubra como os vínculos primários influenciam nossos relacionamentos adultos.</p>
+                    <span class="featured-link">Ler mais →</span>
+                </a>
+
+                <a href="topics/vieses-cognitivos.html" class="featured-card">
+                    <div class="featured-tag">Cognição</div>
+                    <h3>Vieses Cognitivos</h3>
+                    <p>Explore os padrões de pensamento que distorcem nossa percepção da realidade.</p>
+                    <span class="featured-link">Ler mais →</span>
+                </a>
+
+                <a href="topics/bigfive.html" class="featured-card">
+                    <div class="featured-tag">Personalidade</div>
+                    <h3>Big Five</h3>
+                    <p>O modelo dos cinco fatores que define a estrutura da personalidade humana.</p>
+                    <span class="featured-link">Ler mais →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perfil Psicológico -->
+    <section class="profile-section" id="perfil">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Descubra Seu Caminho</span>
+                <h2 class="section-title">Seu Perfil Psicológico</h2>
+                <p class="section-desc">Responda algumas perguntas e descubra qual área da psicologia mais te interessa. Receba recomendações personalizadas de conteúdo.</p>
+            </div>
+            
+            <div class="profile-container" id="profileContainer">
+                <!-- O perfil será renderizado aqui pelo JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulador Psicológico -->
+    <section class="simulator-section" id="simulador">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Aprendizado Interativo</span>
+                <h2 class="section-title">Simulador Psicológico</h2>
+                <p class="section-desc">Explore situações do dia a dia e aprenda conceitos importantes de psicologia e comportamento humano.</p>
+            </div>
+            
+            <div class="simulator-container" id="simulatorContainer">
+                <!-- O simulador será renderizado aqui pelo JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">Atlas da Mente</span>
+                    </a>
+                    <p>Uma jornada pelo universo da mente humana, explorando emoções, comportamentos e a complexidade que nos define.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Áreas</h4>
+                        <ul>
+                            <li><a href="pages/emocoes.html">Emoções</a></li>
+                            <li><a href="pages/personalidade.html">Personalidade</a></li>
+                            <li><a href="pages/cognicao.html">Cognição</a></li>
+                            <li><a href="pages/trauma.html">Trauma</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Explorar</h4>
+                        <ul>
+                            <li><a href="pages/relacoes.html">Relações Humanas</a></li>
+                            <li><a href="pages/decisoes.html">Tomada de Decisão</a></li>
+                            <li><a href="#mapa">Mapa Mental</a></li>
+                            <li><a href="#areas">Todas as Áreas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Atlas da Mente Humana. Projeto educacional baseado em psicologia, neurociência e comportamento humano.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="perfil.js"></script>
+    <script src="simulador.js"></script>
+</body>
+</html>

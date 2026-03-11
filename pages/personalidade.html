@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalidade - Atlas da Mente Humana</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Atlas da Mente</span>
+            </a>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Buscar tópicos..." autocomplete="off">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="emocoes.html">Emoções</a></li>
+                <li><a href="personalidade.html" class="active">Personalidade</a></li>
+                <li><a href="cognicao.html">Cognição</a></li>
+                <li><a href="trauma.html">Trauma</a></li>
+                <li><a href="relacoes.html">Relações</a></li>
+                <li><a href="decisoes.html">Decisões</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html" class="breadcrumb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Início</span>
+                </a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item current">Personalidade</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-bg">
+            <div class="header-pattern"></div>
+            <div class="header-glow"></div>
+        </div>
+        <div class="container">
+            <a href="../index.html" class="back-button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Voltar para Início</span>
+            </a>
+            <div class="page-header-content">
+                <div class="page-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <h1 class="page-title">Personalidade</h1>
+                <p class="page-desc">Descubra os traços, padrões e dinâmicas que definem quem somos. Explore como a personalidade molda nossa forma de pensar, sentir e agir no mundo.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introdução -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <h2>O Que É Personalidade?</h2>
+                <p>A personalidade refere-se às características psicológicas únicas de cada indivíduo que determinam seus padrões de pensamento, sentimento e comportamento. É o que nos torna distintos uns dos outros e influencia como respondemos a diferentes situações da vida.</p>
+                <p>O estudo da personalidade na psicologia abrange diversas teorias e modelos, desde as teorias psicodinâmicas de Freud até os modelos empíricos contemporâneos como o Big Five. Compreender a personalidade nos ajuda a entender melhor a nós mesmos e aos outros.</p>
+                
+                <div class="emotion-categories">
+                    <div class="category-item">
+                        <span class="category-dot" style="background: #8b5cf6;"></span>
+                        <span>Traços de Personalidade</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-dot" style="background: #06b6d4;"></span>
+                        <span>Dinâmicas Comportamentais</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-dot" style="background: #f59e0b;"></span>
+                        <span>Desenvolvimento</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tópicos -->
+    <section class="topics-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Explore</span>
+                <h2 class="section-title">Conceitos de Personalidade</h2>
+                <p class="section-desc">Clique em cada tópico para compreender os mecanismos e impactos na formação da personalidade.</p>
+            </div>
+
+            <div class="topics-grid">
+                <!-- Big Five -->
+                <a href="../topics/bigfive.html" class="topic-card emotion-card">
+                    <div class="topic-card-header">
+                        <div class="topic-emoji">🧠</div>
+                        <div class="topic-category">Modelo Psicológico</div>
+                    </div>
+                    <h3>Big Five</h3>
+                    <p>O modelo dos cinco fatores que define a estrutura da personalidade humana: abertura, conscienciosidade, extroversão, amabilidade e neuroticismo.</p>
+                    <div class="topic-meta">
+                        <span class="topic-read-time">6 min de leitura</span>
+                        <span class="topic-link">Explorar →</span>
+                    </div>
+                </a>
+
+                <!-- Introversão e Extroversão -->
+                <a href="../topics/introversao-extroversao.html" class="topic-card emotion-card">
+                    <div class="topic-card-header">
+                        <div class="topic-emoji">🎭</div>
+                        <div class="topic-category">Traço de Personalidade</div>
+                    </div>
+                    <h3>Introversão e Extroversão</h3>
+                    <p>Traços de personalidade que definem a orientação social do indivíduo, desde a preferência pela solidão até a busca por estímulos sociais.</p>
+                    <div class="topic-meta">
+                        <span class="topic-read-time">5 min de leitura</span>
+                        <span class="topic-link">Explorar →</span>
+                    </div>
+                </a>
+
+                <!-- Narcisismo -->
+                <a href="../topics/narcisismo.html" class="topic-card emotion-card">
+                    <div class="topic-card-header">
+                        <div class="topic-emoji">🪞</div>
+                        <div class="topic-category">Trato de Personalidade</div>
+                    </div>
+                    <h3>Narcisismo</h3>
+                    <p>Trato de personalidade caracterizado por autoabsorção excessiva, necessidade de admiração e falta de empatia pelos outros.</p>
+                    <div class="topic-meta">
+                        <span class="topic-read-time">5 min de leitura</span>
+                        <span class="topic-link">Explorar →</span>
+                    </div>
+                </a>
+
+                <!-- Empatia -->
+                <a href="../topics/empatia.html" class="topic-card emotion-card">
+                    <div class="topic-card-header">
+                        <div class="topic-emoji">💝</div>
+                        <div class="topic-category">Habilidade Social</div>
+                    </div>
+                    <h3>Empatia</h3>
+                    <p>Capacidade de compreender e compartilhar os estados emocionais de outras pessoas, fundamental para conexões sociais saudáveis.</p>
+                    <div class="topic-meta">
+                        <span class="topic-read-time">4 min de leitura</span>
+                        <span class="topic-link">Explorar →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas Relacionadas -->
+    <section class="related-section">
+        <div class="container">
+            <div class="related-content">
+                <h3>Continue Explorando</h3>
+                <p>A personalidade está profundamente conectada com outras áreas da psicologia:</p>
+                
+                <div class="related-cards">
+                    <a href="emocoes.html" class="related-card">
+                        <div class="related-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            </svg>
+                        </div>
+                        <div class="related-info">
+                            <h4>Emoções</h4>
+                            <p>Como as emoções influenciam e são influenciadas pela personalidade</p>
+                        </div>
+                    </a>
+
+                    <a href="cognicao.html" class="related-card">
+                        <div class="related-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                                <path d="M12 2a10 10 0 0 1 10 10"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="related-info">
+                            <h4>Cognição</h4>
+                            <p>Os processos mentais que formam nossa personalidade</p>
+                        </div>
+                    </a>
+
+                    <a href="trauma.html" class="related-card">
+                        <div class="related-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <div class="related-info">
+                            <h4>Trauma</h4>
+                            <p>Como experiências traumáticas moldam a personalidade</p>
+                        </div>
+                    </a>
+
+                    <a href="relacoes.html" class="related-card">
+                        <div class="related-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="related-info">
+                            <h4>Relações</h4>
+                            <p>A personalidade nos relacionamentos interpessoais</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">Atlas da Mente</span>
+                    </a>
+                    <p>Uma jornada pelo universo da mente humana, explorando emoções, comportamentos e a complexidade que nos define.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Áreas</h4>
+                        <ul>
+                            <li><a href="emocoes.html">Emoções</a></li>
+                            <li><a href="personalidade.html">Personalidade</a></li>
+                            <li><a href="cognicao.html">Cognição</a></li>
+                            <li><a href="trauma.html">Trauma</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Explorar</h4>
+                        <ul>
+                            <li><a href="relacoes.html">Relações Humanas</a></li>
+                            <li><a href="decisoes.html">Tomada de Decisão</a></li>
+                            <li><a href="../index.html#mapa">Mapa Mental</a></li>
+                            <li><a href="../index.html#areas">Todas as Áreas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Atlas da Mente Humana. Projeto educacional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>

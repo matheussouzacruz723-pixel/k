@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Psicológico | Atlas da Mente Humana</title>
+    <meta name="description" content="Aprenda psicologia através de cenários interativos do dia a dia. Teste seus conhecimentos e compreenda conceitos psicológicos.">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Atlas da Mente</span>
+            </a>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Buscar tópicos..." autocomplete="off">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pages/emocoes.html">Emoções</a></li>
+                <li><a href="pages/personalidade.html">Personalidade</a></li>
+                <li><a href="pages/cognicao.html">Cognição</a></li>
+                <li><a href="pages/trauma.html">Trauma</a></li>
+                <li><a href="pages/relacoes.html">Relações</a></li>
+                <li><a href="pages/decisoes.html">Decisões</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Simulador Section -->
+    <section class="simulator-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Aprendizado Interativo</span>
+                <h2 class="section-title">Simulador Psicológico</h2>
+                <p class="section-desc">Explore situações do dia a dia e aprenda conceitos importantes de psicologia e comportamento humano.</p>
+            </div>
+            
+            <div class="simulator-container" id="simulatorContainer">
+                <!-- O simulador será renderizado aqui pelo JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">Atlas da Mente</span>
+                    </a>
+                    <p>Uma jornada pelo universo da mente humana, explorando emoções, comportamentos e a complexidade que nos define.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Áreas</h4>
+                        <ul>
+                            <li><a href="pages/emocoes.html">Emoções</a></li>
+                            <li><a href="pages/personalidade.html">Personalidade</a></li>
+                            <li><a href="pages/cognicao.html">Cognição</a></li>
+                            <li><a href="pages/trauma.html">Trauma</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Explorar</h4>
+                        <ul>
+                            <li><a href="pages/relacoes.html">Relações Humanas</a></li>
+                            <li><a href="pages/decisoes.html">Tomada de Decisão</a></li>
+                            <li><a href="simulador.html">Simulador</a></li>
+                            <li><a href="index.html#areas">Todas as Áreas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Atlas da Mente Humana. Projeto educacional baseado em psicologia, neurociência e comportamento humano.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="simulador.js"></script>
+</body>
+</html>
