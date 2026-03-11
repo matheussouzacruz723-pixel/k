@@ -840,23 +840,31 @@
             document.body.style.overflow = '';
         }
 
-        // Enhanced touch and click support for mobile
+        // Enhanced touch, click, and keyboard support for mobile
         regions.forEach(function(region) {
-            // onclick handler - most reliable across mobile browsers
-            region.onclick = function(e) {
+            var regionId = region.getAttribute('data-id');
+            
+            // Click handler
+            region.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                var regionId = this.getAttribute('data-id');
                 showInfo(regionId);
-            };
+            });
             
-            // Touchend handler for faster response on some mobile devices
+            // Touchend handler for faster response on mobile
             region.addEventListener('touchend', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                var regionId = this.getAttribute('data-id');
                 showInfo(regionId);
             }, { passive: false });
+            
+            // Keyboard accessibility - Enter and Space keys
+            region.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    showInfo(regionId);
+                }
+            });
         });
 
         modalClose.addEventListener('click', closeModal);
